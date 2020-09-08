@@ -1474,8 +1474,7 @@ a.nav-link.nav-link--black {
 }
 
 .section--header {
-    min-height: 320px;
-    padding-top: 130px
+    padding-top: 3.5em
 }
 
 .section--content-center {
