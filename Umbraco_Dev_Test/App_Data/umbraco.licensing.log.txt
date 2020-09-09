@@ -1,4 +1,0 @@
-Could not find any UmbracoForms licensing files in C:\Users\Daniel\source\repos\Umbraco_Dev_Test\Umbraco_Dev_Test\bin:
-Could not find any UmbracoForms licensing files in C:\Users\Daniel\source\repos\Umbraco_Dev_Test\Umbraco_Dev_Test\bin:
-Could not find any UmbracoForms licensing files in C:\Users\Daniel\source\repos\Umbraco_Dev_Test\Umbraco_Dev_Test\bin:
-Could not find any UmbracoForms licensing files in C:\Users\Daniel\source\repos\Umbraco_Dev_Test\Umbraco_Dev_Test\bin:
