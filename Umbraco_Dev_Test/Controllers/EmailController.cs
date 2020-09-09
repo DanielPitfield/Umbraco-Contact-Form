@@ -7,7 +7,7 @@ namespace Umbraco_Dev_Test.Controllers
     {
         public ActionResult RenderForm()
         {
-            return PartialView("");
+            return PartialView("~/Views/Partials/Forms/Emails/Email.cshtml");
         }
 
         public ActionResult SubmitForm()

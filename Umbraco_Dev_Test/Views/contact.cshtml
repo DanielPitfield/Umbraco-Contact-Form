@@ -1,6 +1,4 @@
-﻿@inherits UmbracoViewPage<Contact>
-@using ContentModels = Umbraco.Web.PublishedModels;
-@{
+﻿@{
     Layout = "master.cshtml";
 }
 
@@ -9,8 +7,7 @@
 <section class="section">
     <div class="container">
         <div class="row">
-            <h1>@Model.ContactFormHeader</h1>
-            <p>@Model.ContactIntro<p>
+            @{Html.RenderAction("RenderForm", "Email");}
         </div>
     </div>
 </section>
