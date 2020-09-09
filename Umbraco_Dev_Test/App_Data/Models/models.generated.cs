@@ -17,8 +17,8 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "be0b1ba9d423f3b7")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f6326905daa5fb93")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.6")]
 
 namespace Umbraco.Web.PublishedModels
 {
@@ -525,32 +525,11 @@ namespace Umbraco.Web.PublishedModels
 		public global::System.Web.IHtmlString ContactIntro => this.Value<global::System.Web.IHtmlString>("contactIntro");
 
 		///<summary>
-		/// Message: The body or text of the email being sent
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.4")]
-		[ImplementPropertyType("message")]
-		public string Message => this.Value<string>("message");
-
-		///<summary>
 		/// Page Title: The title of the page, this is also the first text in a google search result. The ideal length is between 40 and 60 characters
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.4")]
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle => this.Value<string>("pageTitle");
-
-		///<summary>
-		/// Recipient: The email address (or addresses) the email will be sent to
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.4")]
-		[ImplementPropertyType("recipient")]
-		public string Recipient => this.Value<string>("recipient");
-
-		///<summary>
-		/// Subject: The subject or name given to the email being sent
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.4")]
-		[ImplementPropertyType("subject")]
-		public string Subject => this.Value<string>("subject");
 
 		///<summary>
 		/// Keywords: Keywords that describe the content of the page. This is considered optional since most modern search engines don't use this anymore
