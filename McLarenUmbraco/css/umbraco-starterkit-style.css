@@ -1187,7 +1187,7 @@ body.theme-font-mono {
     }
 
 .playfair, body.theme-font-serif .nav-link.nav-link--home, body.theme-font-serif h1, body.theme-font-serif h2, body.theme-font-serif h3, body.theme-font-serif h4, body.theme-font-serif h5, body.theme-font-serif h6 {
-    font-family: Playfair Display,serif
+    font-family: Helvetica, Arial, sans-serif
 }
 
 .noto, body.theme-font-serif, body.theme-font-serif .nav-link {
@@ -1864,6 +1864,13 @@ label {
 
 .form-group {
     margin-bottom: 25px
+}
+
+#email_submit {
+    padding: 0.7em 7.5em;
+    background: blue;
+    color: white;
+    border: black 2px solid;
 }
 
 .form-control {

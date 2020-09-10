@@ -4,15 +4,20 @@
 
 @using (Html.BeginUmbracoForm<EmailController>("SubmitForm"))
 {
-    <div class="row">
-        @Html.LabelFor(model => model.Subject)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, new { Style = "margin-right: 10px;" })
+        @Html.TextBoxFor(model => model.Name)
+
+        @Html.LabelFor(model => model.Email_Address, new { Style = "margin: 5px 10px;" })
+        @Html.TextBoxFor(model => model.Email_Address)
+
+        @Html.LabelFor(model => model.Subject, new { Style = "margin: 5px 10px;" })
         @Html.TextBoxFor(model => model.Subject)
     </div>
 
-    <div class="row">
-        @Html.LabelFor(model => model.Message)
-        @Html.TextAreaFor(model => model.Message)
+    <div class="form-group">
+        @Html.TextAreaFor(model => model.Message, new { Style = "width:72.5%;height:12em;", @placeholder = "Message" })
     </div>
 
-    <button type="submit">Send</button>
+    <button id="email_submit">Send</button>
 }

@@ -16,8 +16,6 @@ namespace McLarenUmbraco.Controllers
 
         public void SubmitForm(EmailModel model)
         {
-            // TODO Validation
-
             if(ModelState.IsValid)
             {
                 SendEmail(model);
@@ -26,9 +24,12 @@ namespace McLarenUmbraco.Controllers
 
         public void SendEmail(EmailModel model)
         {
-            // Prepare email
             var mailMessage = new MimeMessage();
-            mailMessage.From.Add(new MailboxAddress("McLaren Umbraco", "danielpitfield1@gmail.com")); // TODO From Email address entered
+
+            var Sender_Name = (model.Name == "") ? "Default" : model.Name;
+            var Sender_Email = (model.Email_Address == "") ? "mclaren1umbraco@gmail.com" : model.Email_Address;
+
+            mailMessage.From.Add(new MailboxAddress(Sender_Name, Sender_Email));
             mailMessage.To.Add(new MailboxAddress("Personal Email", "danielpitfield1@gmail.com")); // TODO To local host
             mailMessage.Subject = model.Subject;
             mailMessage.Body = new TextPart("plain")
