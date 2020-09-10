@@ -1,12 +1,9 @@
 ﻿@inherits UmbracoViewPage<McLarenUmbraco.Models.EmailModel>
 
-@using (Html.BeginUmbracoForm("SubmitForm", "Email"))
-{
-    <div class="row">
-        @Html.LabelFor(model => model.Recipient)
-        @Html.TextBoxFor(model => model.Recipient)
-    </div>
+@using McLarenUmbraco.Controllers;
 
+@using (Html.BeginUmbracoForm<EmailController>("SubmitForm"))
+{
     <div class="row">
         @Html.LabelFor(model => model.Subject)
         @Html.TextBoxFor(model => model.Subject)
@@ -16,4 +13,6 @@
         @Html.LabelFor(model => model.Message)
         @Html.TextAreaFor(model => model.Message)
     </div>
+
+    <button type="submit">Send</button>
 }
