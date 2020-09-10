@@ -5,10 +5,10 @@
 @using (Html.BeginUmbracoForm<EmailController>("SubmitForm"))
 {
     <div class="form-group">
-        @Html.LabelFor(model => model.Name, new { Style = "margin-right: 10px;" })
+        @Html.LabelFor(model => model.Name, "Name*", new { Style = "margin-right: 10px;" })
         @Html.TextBoxFor(model => model.Name)
 
-        @Html.LabelFor(model => model.Email_Address, new { Style = "margin: 5px 10px;" })
+        @Html.LabelFor(model => model.Email_Address, "Email Address", new { Style = "margin: 5px 10px;" })
         @Html.TextBoxFor(model => model.Email_Address)
 
         @Html.LabelFor(model => model.Subject, new { Style = "margin: 5px 10px;" })

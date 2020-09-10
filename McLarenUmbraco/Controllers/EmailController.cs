@@ -2,6 +2,8 @@
 using McLarenUmbraco.Models;
 using MimeKit;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Umbraco.Web.Mvc;
 
@@ -20,29 +22,61 @@ namespace McLarenUmbraco.Controllers
             {
                 SendEmail(model);
             }
+            else
+            {
+                // Determine errors
+                List<string>errorList = new List<string>();
+                foreach (var field in ModelState)
+                {
+                    IEnumerable<string> fieldErrors = field.Value.Errors.Select(error => error.ErrorMessage);
+                    errorList.AddRange(fieldErrors);
+                }
+
+                // Display errors
+            }
         }
 
         public void SendEmail(EmailModel model)
         {
+            // Prepare Email
             var mailMessage = new MimeMessage();
 
-            var Sender_Name = (model.Name == "") ? "Default" : model.Name;
-            var Sender_Email = (model.Email_Address == "") ? "mclaren1umbraco@gmail.com" : model.Email_Address;
+            mailMessage.From.Add(new MailboxAddress(model.Name, "mclaren1umbraco@gmail.com"));
+            mailMessage.To.Add(new MailboxAddress("Personal Email", "danielpitfield1@gmail.com"));
 
-            mailMessage.From.Add(new MailboxAddress(Sender_Name, Sender_Email));
-            mailMessage.To.Add(new MailboxAddress("Personal Email", "danielpitfield1@gmail.com")); // TODO To local host
-            mailMessage.Subject = model.Subject;
-            mailMessage.Body = new TextPart("plain")
+            mailMessage.Subject = (string.IsNullOrWhiteSpace(model.Subject)) ? "No subject" : model.Subject;
+
+            string message = "";
+
+            if (!string.IsNullOrWhiteSpace(model.Email_Address)) // If the email address was specified
             {
-                Text = model.Message
+                // Begin the message with a paragraph stating the email address (an email to reply to)
+                message = $"<p><b>Reply email address: </b>{model.Email_Address}</p>";
+            }
+
+            message += $"<p>{model.Message}</p>";
+
+            mailMessage.Body = new TextPart("html")
+            {
+                Text = message
             };
 
-            // Send email (Gmail SMTP)
+            // Send Email
             using (var smtpClient = new SmtpClient())
             {
+                // (Gmail SMTP)
                 smtpClient.Connect("smtp.gmail.com", 587);
                 smtpClient.Authenticate("mclaren1umbraco@gmail.com", "hot_apple_f1");
-                smtpClient.Send(mailMessage);
+
+                try
+                {
+                    smtpClient.Send(mailMessage);
+                }
+                catch (Exception ex)
+                {
+                    // Valid email but couldn't be sent
+                }
+
                 smtpClient.Disconnect(true);
             }
         }

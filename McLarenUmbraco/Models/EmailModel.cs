@@ -8,6 +8,7 @@ namespace McLarenUmbraco.Models
 {
     public class EmailModel
     {
+        [Required]
         public string Name { get; set; }
         [EmailAddress]
         public string Email_Address { get; set; }
