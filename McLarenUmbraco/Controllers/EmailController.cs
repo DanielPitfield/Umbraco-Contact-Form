@@ -14,30 +14,29 @@ namespace McLarenUmbraco.Controllers
             return PartialView("~/Views/Partials/Forms/Email/Email.cshtml");
         }
 
-        public void SubmitForm()
+        public void SubmitForm(EmailModel model)
         {
-            SendEmail();
-            /*
+            // TODO Validation
+
             if(ModelState.IsValid)
             {
                 SendEmail(model);
             }
-            */
         }
 
-        public void SendEmail()
+        public void SendEmail(EmailModel model)
         {
             // Prepare email
             var mailMessage = new MimeMessage();
-            mailMessage.From.Add(new MailboxAddress("Default", "noreply@example.com"));
-            mailMessage.To.Add(new MailboxAddress("Personal Email", "danielpitfield1@gmail.com"));
-            mailMessage.Subject = "subject";
+            mailMessage.From.Add(new MailboxAddress("McLaren Umbraco", "danielpitfield1@gmail.com")); // TODO From Email address entered
+            mailMessage.To.Add(new MailboxAddress("Personal Email", "danielpitfield1@gmail.com")); // TODO To local host
+            mailMessage.Subject = model.Subject;
             mailMessage.Body = new TextPart("plain")
             {
-                Text = "message"
+                Text = model.Message
             };
 
-            // Send email
+            // Send email (Gmail SMTP)
             using (var smtpClient = new SmtpClient())
             {
                 smtpClient.Connect("smtp.gmail.com", 587);
