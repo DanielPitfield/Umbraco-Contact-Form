@@ -4,20 +4,26 @@
 
 @using (Html.BeginUmbracoForm<EmailController>("SubmitForm"))
 {
-    <div class="form-group">
-        @Html.LabelFor(model => model.Name, "Name*", new { Style = "margin-right: 10px;" })
-        @Html.TextBoxFor(model => model.Name)
+    <div class="form-group" style="padding: 0 1.8em;">
+        <div class="field">
+            @Html.LabelFor(model => model.Name, "Name*", new { @class = "form_label" })
+            @Html.TextBoxFor(model => model.Name, new { @class = "form_input" })
+        </div>
 
-        @Html.LabelFor(model => model.Email_Address, "Email Address", new { Style = "margin: 5px 10px;" })
-        @Html.TextBoxFor(model => model.Email_Address)
+        <div class="field">
+            @Html.LabelFor(model => model.Email_Address, "Email", new {@class = "form_label" })
+            @Html.TextBoxFor(model => model.Email_Address, new { @class = "form_input" })
+        </div>
 
-        @Html.LabelFor(model => model.Subject, new { Style = "margin: 5px 10px;" })
-        @Html.TextBoxFor(model => model.Subject)
+        <div class="field">
+            @Html.LabelFor(model => model.Subject, new { @class = "form_label" })
+            @Html.TextBoxFor(model => model.Subject, new { @class = "form_input" })
+        </div>
     </div>
 
     <div class="form-group">
-        @Html.TextAreaFor(model => model.Message, new { Style = "width:72.5%;height:12em;", @placeholder = "Message" })
+        @Html.TextAreaFor(model => model.Message, new { @class = "form_textarea", @placeholder = "Message" })
     </div>
 
-    <button id="email_submit">Send</button>
+    <button class="button button--border--solid">Send</button>
 }

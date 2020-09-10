@@ -16,11 +16,15 @@ namespace McLarenUmbraco.Controllers
             return PartialView("~/Views/Partials/Forms/Email/Email.cshtml");
         }
 
-        public void SubmitForm(EmailModel model)
+        public ActionResult SubmitForm(EmailModel model)
         {
-            if(ModelState.IsValid)
+            ViewData["Message"] = null; // Reset confirmation message
+            ViewData["Errors"] = null;
+
+            if (ModelState.IsValid)
             {
                 SendEmail(model);
+                return CurrentUmbracoPage();
             }
             else
             {
@@ -32,7 +36,10 @@ namespace McLarenUmbraco.Controllers
                     errorList.AddRange(fieldErrors);
                 }
 
-                // Display errors
+                // Send/Pass errors to view
+                ViewData["Errors"] = string.Join(Environment.NewLine, errorList);
+
+                return CurrentUmbracoPage();
             }
         }
 
@@ -71,10 +78,11 @@ namespace McLarenUmbraco.Controllers
                 try
                 {
                     smtpClient.Send(mailMessage);
+                    ViewData["Message"] = "Email was sent successfully";
                 }
-                catch (Exception ex)
+                catch (Exception ex) // Valid email but it couldn't be sent
                 {
-                    // Valid email but couldn't be sent
+                    ViewData["Errors"] = "ERROR: Email was not sent";
                 }
 
                 smtpClient.Disconnect(true);

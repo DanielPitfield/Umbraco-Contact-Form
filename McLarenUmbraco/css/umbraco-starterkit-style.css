@@ -1856,6 +1856,56 @@ p.testimonial-text {
         color: #000
     }
 
+#contact_page_head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+}
+
+@media only screen and (max-width: 600px) {
+    #contact_page_head {
+        padding: 0;
+    }
+}
+
+#form_container {
+    text-align: center;
+    justify-content: center;
+    border: 3px solid black;
+    box-shadow: 10px 10px 10px grey;
+    background: #a3c2f1;
+    max-width: 35em;
+    padding: 1em 3em;
+}
+
+#form_container > h1 {
+    margin-top: 0;
+}
+
+.form_label {
+    min-width: 5em;
+    margin: 5px 10px;
+    text-align: left;
+}
+
+.form_input {
+    min-width: 15em;
+    padding: 0.2em;
+    flex-grow: 1;
+}
+
+.form_textarea {
+    min-width: 25em;
+    min-height: 12em;
+    padding: 0.2em;
+}
+
+.field {
+    margin-top: 0.5em;
+    display: flex;
+}
+
 label {
     margin-bottom: 10px;
     font-size: 12px;
@@ -1866,11 +1916,21 @@ label {
     margin-bottom: 25px
 }
 
-#email_submit {
-    padding: 0.7em 7.5em;
-    background: blue;
-    color: white;
-    border: black 2px solid;
+.alert_error, .alert_success {
+    width:auto;
+    display:inline-block;
+    margin-bottom: 0;
+    padding:5px 5em;
+    color:white;
+    white-space: pre-line;
+}
+
+.alert_error {
+    background-color: darkred;
+}
+
+.alert_success {
+    background-color: green;
 }
 
 .form-control {

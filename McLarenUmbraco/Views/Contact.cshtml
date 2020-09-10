@@ -5,11 +5,19 @@
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
 <body>
-    <section class="section">
-        <div class="container" style="text-align:center;justify-content:center;">
+    <section class="section" id="contact_page_head">
+        <div class="container" id="form_container">
             <h1>Contact Form</h1>
             <p>If you would like to contact us, please use this form. Click the 'Send' button in order for an email to be sent.</p>
             @{Html.RenderAction("RenderForm", "Email");}
+            @if (ViewData["Message"] != null)
+            {
+                <p class="alert_success">@ViewData["Message"]</p>
+            }
+            @if (ViewData["Errors"] != null)
+            {
+                <p class="alert_error">@ViewData["Errors"]</p>
+            }
         </div>
     </section>
 </body>
