@@ -18,3 +18,5 @@ A comment within the SendEmail() method explains how this can be changed (refer 
 ### Known Issues
 A newly created Gmail account is used as authentication to the Gmail SMTP server. The authentication details (i.e login details for that account) are included in version control.
 Better practice would be to obtain OAuth 2.0 credentials for the solution and use access tokens.
+
+A maximum length for the input values is not enforced (limited testing shows this is particularly problematic with a long input value for the 'Name' field, with the email either not being sent or taking considerable time to reach the recipient)
