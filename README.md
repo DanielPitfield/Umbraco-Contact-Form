@@ -1,4 +1,4 @@
-### Navigation to Contact Form
+### Navigation (to Contact Form)
 Through the navigation bar found on every page or with the Call-to-action button found on the home page
 
 ### MVC
