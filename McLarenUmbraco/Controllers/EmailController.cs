@@ -65,6 +65,8 @@
             var mailMessage = new MimeMessage();
 
             mailMessage.From.Add(new MailboxAddress(model.Name, "mclaren1umbraco@gmail.com"));
+
+            // The email address the email will be sent to can be changed in the following line ("Alias", "Email Address")
             mailMessage.To.Add(new MailboxAddress("Personal Email", "danielpitfield1@gmail.com"));
 
             mailMessage.Subject = string.IsNullOrWhiteSpace(model.Subject) ? "No subject" : model.Subject;
