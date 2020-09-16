@@ -1,3 +1,11 @@
+*.js linguist-vendored
+*.html linguist-vendored
+*.xml linguist-vendored
+*.less linguist-vendored
+*.css linguist-vendored
+*.svg linguist-vendored
+*.json linguist-vendored
+
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
