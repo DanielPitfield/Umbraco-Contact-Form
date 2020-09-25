@@ -1,5 +1,11 @@
-### Navigation (to Contact Form)
-Through the navigation bar found on every page or with the Call-to-action button found on the home page
+# Umbraco Contact Form
+
+![Home](McLarenUmbraco/documentation/images/Home.PNG)
+
+## Contact Form
+Navigated to through the navigation bar found on every page or with the Call-to-action button found on the home page:
+
+![Contact](McLarenUmbraco/documentation/images/Contact.PNG)
 
 ### MVC
 Model: [/Models/EmailModel.cs](https://github.com/DanielPitfield/Umbraco_Dev_Test/blob/master/McLarenUmbraco/Models/EmailModel.cs)
